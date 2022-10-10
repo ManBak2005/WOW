@@ -1,5 +1,5 @@
 # het spel van zoveel woorden met lengte 5  met  5 characters gokken in 1 minuut gokken.
-
+# misschien beter als zoveel mogelijk woorden maken met de 5 charcters en niet
 import random
 import string
 
@@ -8,17 +8,16 @@ print('u krijgt 5 letter waarbij u zoveel mogelijk woorden moet maken in 60 seco
 print('wilt u het spel spelen?')
 print('A.U.B. alleen met Ja of Nee antworden')
 
-antwoord = str(input())
-if antwoord == 'Ja':
-    print('de game zal beginnen')
-elif antwoord != 'Ja' or 'Nee':
-    print('geen correcte invoer aub alleen Ja of Nee')
-elif antwoord == 'Nee':
-    print('helaas dan niet')
-
-# geef aantal letters tussen 3 tot 6
-# laat tijd aflopen van 60 tot 1
-
+while True:
+    antwoord = str(input())
+    if antwoord == 'Ja':
+        print('de game zal beginnen')
+        False
+    elif antwoord != 'Ja' or 'Nee':
+        print('geen correcte invoer aub alleen Ja of Nee')
+    elif antwoord == 'Nee':
+        print('helaas dan niet')
+        break
 print('welkom bij het woorden spel, gok zoveel woorden met een lengte van 5')
 
 randomletters = []
@@ -32,12 +31,12 @@ medeklinkers = "bcdfghjklmnpqrstvwxyz"
 
 letterlijst = []
 # Willekeurige klinkers
-for i in range(2):
-    randomletter = random.choice(klinkers)
-    letterlijst.append(randomletter)
+for i in range(4):
+     randomletter = random.choice(klinkers)
+     letterlijst.append(randomletter)
 
 # Willekeurige medeklinkers
-for i in range(3):
+for i in range(6):
     randomletter = random.choice(medeklinkers)
     letterlijst.append(randomletter)
 
@@ -46,12 +45,19 @@ print(letterlijst, end=' ')
 print('')
 # check als user wel echt maar 5 lang heeft
 Guesswoord = str(input())
-if len(str(Guesswoord)) == 5:
+if len(str(Guesswoord)) == 14:
     True
 else:
     print('woord kan alleen lengte 5 zijn, probeer nog eens')
 #tijd afloop
 
-
+BeginTijd = 60
+while begintijd > 0:
+    print(BeginTijd)
+BeginTijd =  BeginTijd -1
+if BeginTijd == 0:
+    print('Je tijd is op')
+else:
+    print('je hebt nog tijd over')
 
 
