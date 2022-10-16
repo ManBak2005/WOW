@@ -1,6 +1,5 @@
 import random
 import time
-import pygame
 
 
 
@@ -37,18 +36,18 @@ for i in range(3):
     randomletter = random.choice(medeklinkers)
     letterlijst.append(randomletter)
 
- with open("alle woorden.txt", "r") as f:
-    for line in f:
-        print(line)
+#with open("words.txt", "r") as f:
+#    for line in f:
+#        print(line)
 
 # while loop maken zodat timer niet gelijk afgaat?
 
-BeginTijd = 59
+#BeginTijd = 59
 
-for i in range(BeginTijd):
-    print(BeginTijd-i)
-    time.sleep(1)
-print('Je tijd is op')
+#for i in range(BeginTijd):
+#    print(BeginTijd-i)
+#    time.sleep(1)
+#print('Je tijd is op')
 
 letterlijst.sort()
 print(letterlijst, end=' ')
