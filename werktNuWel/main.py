@@ -1,6 +1,14 @@
 import random
 import time
 
+# ideeen
+# nog met kleuren doen
+# zorg ervoor dat letter niet 2 keer gegokt kan worden
+# if gok == gebruikt:
+  #  print("je hebt deze letter al gegokt, gok een andere letter")
+# else:
+  #  True
+# make sure dat speler alleen met letters gokt print anders een foutmeldeing
 
 def positie():
 
