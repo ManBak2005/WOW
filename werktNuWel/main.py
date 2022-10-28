@@ -1,81 +1,89 @@
 import random
-
-def PositionOfTheLetter(guess):
-    if guess in word:
-        index = word.find(guess)
-     #pass
+import time
 
 
-def WelkomstScherm():
-    print("welcome to the word guessing game, where you have to guess the word")
-    print("wow the name does not make it absolutely obvious what it is about")
-    print("so are you down to play?")
-    print("if you want to play answer with Yes if you dont answer with No")
+def positie():
 
-#def stelJaNeeVraag(vraag):
+    print("welkom bij het woordgokspel, waarbij je het woord moet gokken")
+    time.sleep(1)
+    print("de naam maakt het totaal niet duidelijk waar de game ovver gaat ;)")
+    time.sleep(1)
+    print("het spel begint")
+    time.sleep(1)
+
+    with open('words.txt') as f:
+        words = f.read().splitlines()
+    f.close
+
+    word = random.choice(words)
+    word = word.lower()
+
+    gebruikt = []
+
+    display = word
+    for i in range(len(display)):
+        display = display[0:i] + "_" + display[i + 1:]
+
+    print(" ".join(display))
+
+    maxpogingen = len(word) + 2
+    alphabet = 'qwertyuiopasdfghjklzxcvbnm'
+
+    while display != word:
+        print("je hebt " + str(maxpogingen) + " pogingen")
+        gok = input('gok een letter: ')
+        gok = gok.lower()
+        gebruikt.extend(gok)
+        # print(pogingen)
+
+        for i in range(len(word)):
+            if word[i] == gok:
+                display = display[0:i] + gok + display[i + 1:]
+        print('gebruikte letters; ')
+        print(gebruikt)
+
+        print(" ".join(display))
+        maxpogingen = maxpogingen - 1
+        if maxpogingen == 0:
+            print("helaas u heeft het woord niet gegokt")
+            time.sleep(1)
+            print("het correcte woord was" + str(word))
+            time.sleep(1)
+            break
+    print("wilt u nog een spelen?")
+    print("als je nog een keer wilt spelen antwoord met ja, j of nee, n ")
+
+
+positie()
+
+def welkomstscherm():
+
     while True:
         antwoord = input().lower()
-        if antwoord in ["ja","j"]:
-            return "ja"
+        if antwoord in ["ja", "j"]:
+            positie()
         elif antwoord in ["nee", "n"]:
-            return "nee"
+            print("helaas veel plezier nog")
+            break
         else:
             print("Dit is geen juist antwoord. Antwoord met j of n")
 
-"""
-while True:
-    answer = str(input())
-    if answer == 'Yes':
-        print('welcome to the word guess game')
-        break
-    elif answer == 'No':
-        print("very unfortunate")
-        break
-    elif answer != 'Yes' or 'No':
-        print('there was no correct input found, please only response with yes or no')
-"""
 
-# Zet wat spullen voor het spel klaar
-
-# bestand lezen en de inhoud in een lijst plaatsen
-with open('words.txt') as f:
-    words = f.read().splitlines()
-f.close
-for i in range (1):
-    print(i)
-spelActief = True
-
-WelkomstScherm()
-
-while spelActief:
-    # dit is de grote spel-lus
-
-    # kies een willekeurig woord
-
-    word = random.choice(words)
-    print(word)
-    # bepaal maximaal aantal pogingen
-    maxpoging = len(word)+2
-    score = 0
-
-    # druk de lege string met streepjes af
-
-    raadlijst = len(word)*["_"]
-    print(raadlijst)
+welkomstscherm()
 
 
-
-
-    # einde van het spel
-#    antwoord = stelJaNeeVraag("Wilt u nog een keer spelen?")
-#    if antwoord == "nee":
-#        spelActief = False
-
-    # einde grote spel-lus.
-
-# ff kijken hoe ik dat doe met de woorden uit de woordenlijst
-#word = random.choice(words)
-
-#print(f"+++ {word}")
-#lengt = ["_"]*len(word)
-
+""""
+  while True:
+  if gok != alphabet:
+      print("u kunt alleen gokken met letters")
+       continue
+  elif gok in gebruikt:
+      print("je hebt deze letter al gegokt, gok een andere letter")
+      continue
+  elif gok in word:
+      print("deze letter zit in het woord")
+      continue
+  else;
+      print("er ging iets mis")
+      continue
+  """
