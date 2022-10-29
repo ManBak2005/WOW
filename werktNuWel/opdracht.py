@@ -35,7 +35,7 @@ def positie():
 
     print(" ".join(display))
 
-    maxpogingen = len(word) + 25
+    maxpogingen = len(word) + 5
     alphabet = 'qwertyuiopasdfghjklzxcvbnm'
 
     while display != word:
@@ -60,7 +60,7 @@ def positie():
             time.sleep(1)
             img_b = cv2.imread('thi_baby.jpg')
             cv2.imshow('image' ,img_b)
-            cv2.waitKey(0)
+            cv2.waitKey(10)
             break
         elif word == display:
             print("u heeft het woord correct geraden")
