@@ -1,67 +1,108 @@
 import random
 import time
+import cv2
 
 
 
-print('welkom bij het woorden spel')
-print('u krijgt 5 letter waarbij u zoveel mogelijk woorden moet maken in 60 seconden')
-print('wilt u het spel spelen?')
-print('A.U.B. alleen met Ja of Nee antworden')
+# ideeen nog met kleuren doen
+# zorg ervoor dat letter niet 2 keer gegokt kan worden
+# if gok == gebruikt:
+  #  print("je hebt deze letter al gegokt, gok een andere letter")
+# else:
+  #  True
+# make sure dat speler alleen met letters gokt print anders een foutmeldeing
+#score bord met hoeveel juist gegokte woorden maybe ook een timer
+# laat een foto zien bij een correct raden en een andere foto bij verkeerd raden
+def positie():
 
-while True:
-    antwoord = str(input())
-    if antwoord == 'Ja':
-        print('de game zal beginnen')
-        print('welkom bij het woorden spel, gok zoveel woorden met een lengte van 5')
-        break
-    elif antwoord != 'Ja' or 'Nee':
-        print('geen correcte invoer aub alleen Ja of Nee')
-    elif antwoord == 'Nee':
-        print('helaas dan niet')
-        break
+    print("welkom bij het woordgokspel, waarbij je het woord moet gokken")
+    time.sleep(1)
+    print("de naam maakt het totaal niet duidelijk waar de game ovver gaat ;)")
+    time.sleep(1)
+    print("het spel begint")
+    time.sleep(1)
 
-randomletters = []
+    with open('sgb-words.txt') as f:
+        words = f.read().splitlines()
 
-klinkers = 'aeiuo'
-medeklinkers = "bcdfghjklmnpqrstvwxyz"
+    word = random.choice(words)
 
-letterlijst = []
+    gebruikt = []
 
-for i in range(2):
-     randomletter = random.choice(klinkers)
-     letterlijst.append(randomletter)
+    display = word
+    for i in range(len(display)):
+        display = display[0:i] + "_" + display[i + 1:]
+
+    print(" ".join(display))
+
+    maxpogingen = len(word) + 25
+    alphabet = 'qwertyuiopasdfghjklzxcvbnm'
+
+    while display != word:
+        print("je hebt " + str(maxpogingen) + " pogingen")
+        gok = input('gok een letter: ')
+
+        gebruikt.extend(gok)
+        # print(pogingen)
+
+        for i in range(len(word)):
+            if word[i] == gok:
+                display = display[0:i] + gok + display[i + 1:]
+        print('gebruikte letters; ')
+        print(gebruikt)
+        print(" ".join(display))
+        maxpogingen = maxpogingen - 1
+        if maxpogingen == 0:
+            print("helaas u heeft het woord niet gegokt")
+            time.sleep(1)
+            print("het correcte woord was: " + str(word))
+            print('aub sluit de foto')
+            time.sleep(1)
+            img_b = cv2.imread('thi_baby.jpg')
+            cv2.imshow('image' ,img_b)
+            cv2.waitKey(0)
+            break
+        elif word == display:
+            print("u heeft het woord correct geraden")
+            print("daarom kunt ie deze mooie foto bewonderen")
+            time.sleep(1)
+            img_a = cv2.imread('sussy.jpg')
+            cv2.imshow('image' ,img_a)
+            cv2.waitKey(1000)
+    print("wilt u nog een spelen?")
+    print("als je nog een keer wilt spelen antwoord met ja, j of nee, n ")
 
 
-for i in range(3):
-    randomletter = random.choice(medeklinkers)
-    letterlijst.append(randomletter)
+positie()
 
-#with open("words.txt", "r") as f:
-#    for line in f:
-#        print(line)
+def welkomstscherm():
 
-# while loop maken zodat timer niet gelijk afgaat?
-
-#BeginTijd = 59
-
-#for i in range(BeginTijd):
-#    print(BeginTijd-i)
-#    time.sleep(1)
-#print('Je tijd is op')
-
-letterlijst.sort()
-print(letterlijst, end=' ')
-print('')
-
-Guesswoord = str(input())
-
-if len(str(Guesswoord)) == 5:
-    True
-else:
-    print('woord kan alleen lengte 5 zijn, probeer nog eens')
-
-# with open("sgb-words.txt", "r") as f:
-  #  for line in f:
-#        randomletters +=
+    while True:
+        antwoord = input().lower()
+        if antwoord in ["ja", "j"]:
+            positie()
+        elif antwoord in ["nee", "n"]:
+            print("helaas veel plezier nog")
+            break
+        else:
+            print("Dit is geen juist antwoord. Antwoord met j of n")
 
 
+welkomstscherm()
+
+
+""""
+  while True:
+  if gok != alphabet:
+      print("u kunt alleen gokken met letters")
+       continue
+  elif gok in gebruikt:
+      print("je hebt deze letter al gegokt, gok een andere letter")
+      continue
+  elif gok in word:
+      print("deze letter zit in het woord")
+      continue
+  else;
+      print("er ging iets mis")
+      continue
+  """
