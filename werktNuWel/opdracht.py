@@ -22,7 +22,7 @@ def positie():
     print("het spel begint")
     time.sleep(1)
 
-    with open('de betere.txt') as f:
+    with open('sgb-words.txt') as f:
         words = f.read().splitlines()
 
     word = random.choice(words)
