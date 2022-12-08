@@ -48,7 +48,7 @@ def positie():
             print("helaas u heeft het woord niet gegokt")
             time.sleep(1)
             print("het correcte woord was: " + str(word))
-            print('aub sluit de foto')
+            print('Hierbij deze mooi foto')
             time.sleep(1)
             img_b = cv2.imread('thi_baby.jpg')
             cv2.imshow('image' ,img_b)
