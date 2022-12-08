@@ -3,23 +3,13 @@ import time
 import cv2
 
 
-
-# ideeen nog met kleuren doen
-# zorg ervoor dat letter niet 2 keer gegokt kan worden
-# if gok == gebruikt:
-  #  print("je hebt deze letter al gegokt, gok een andere letter")
-# else:
-  #  True  max 5 leters
-# make sure dat speler alleen met letters gokt print anders een foutmeldeing
-#score bord met hoeveel juist gegokte woorden maybe ook een timer
-# laat een foto zien bij een correct raden en een andere foto bij verkeerd raden
 def positie():
 
-    print("welkom bij het woordgokspel, waarbij je het woord moet gokken met lengte van 5")
+    print("Welkom bij het woordgokspel, gok een woord van lengte 5")
     time.sleep(1)
-    print("de naam maakt het totaal niet duidelijk waar de game over gaat ;)")
+    print("Als je de correcte letter gokt komt het in de juiste positie")
     time.sleep(1)
-    print("het spel begint")
+    print("U heeft 10 pogingen, het spel begint")
     time.sleep(1)
 
     with open('sgb-words.txt') as f:
@@ -35,7 +25,7 @@ def positie():
 
     print(" ".join(display))
 
-    maxpogingen = len(word) + 4
+    maxpogingen = len(word) + 5
     alphabet = 'qwertyuiopasdfghjklzxcvbnm'
 
     while display != word:
@@ -76,7 +66,9 @@ def positie():
 
 positie()
 
+
 def welkomstscherm():
+
 
     while True:
         antwoord = input().lower()
@@ -90,20 +82,3 @@ def welkomstscherm():
 
 
 welkomstscherm()
-
-
-""""
-  while True:
-  if gok != alphabet:
-      print("u kunt alleen gokken met letters")
-       continue
-  elif gok in gebruikt:
-      print("je hebt deze letter al gegokt, gok een andere letter")
-      continue
-  elif gok in word:
-      print("deze letter zit in het woord")
-      continue
-  else;
-      print("er ging iets mis")
-      continue
-  """
