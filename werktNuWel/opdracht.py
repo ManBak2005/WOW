@@ -1,6 +1,8 @@
 import random
 import time
 import cv2
+import os
+
 
 
 def positie():
@@ -25,7 +27,7 @@ def positie():
 
     print(" ".join(display))
 
-    maxpogingen = len(word) + 5
+    maxpogingen = len(word) + 25
     alphabet = 'qwertyuiopasdfghjklzxcvbnm'
 
     while display != word:
