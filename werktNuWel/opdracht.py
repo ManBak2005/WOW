@@ -5,11 +5,11 @@ import cv2
 
 def positie():
 
-    print("Welkom bij het woordgokspel, gok een woord van lengte 5")
+    print("Welkom bij het woordgokspel, gok een woord van lengte 5.")
     time.sleep(1)
-    print("Als je de correcte letter gokt komt het in de juiste positie")
+    print("Als je de correcte letter gokt komt het in de juiste positie.")
     time.sleep(1)
-    print("U heeft 10 pogingen, het spel begint")
+    print("U heeft 10 pogingen, het spel begint.")
     time.sleep(1)
 
     with open('sgb-words.txt') as f:
