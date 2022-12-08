@@ -27,7 +27,7 @@ def positie():
 
     print(" ".join(display))
 
-    maxpogingen = len(word) + 25
+    maxpogingen = len(word) + 5
     alphabet = 'qwertyuiopasdfghjklzxcvbnm'
 
     while display != word:
