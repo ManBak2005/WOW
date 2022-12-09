@@ -4,7 +4,8 @@ import os
 
 
 curDir = os.getcwd()
-curDir: str = r"C:\PythonQ\werktNuWel"
+curDir: str = r""
+# geef current directory
 print(curDir)
 
 
