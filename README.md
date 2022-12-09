@@ -8,3 +8,5 @@ donwload the sgb-words.txt
 
 het progamma zelf is te vinden in WerktNuWel en heet opdracht.py
 
+geef in 7de line uw current directory
+
