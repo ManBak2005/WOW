@@ -1,7 +1,11 @@
 import random
 import time
-import cv2
 import os
+
+
+curDir = os.getcwd()
+curDir: str = r"C:\PythonQ\werktNuWel"
+print(curDir)
 
 
 
@@ -50,17 +54,19 @@ def positie():
             print("het correcte woord was: " + str(word))
             print('Hierbij deze mooi foto')
             time.sleep(1)
-            img_b = cv2.imread('thi_baby.jpg')
-            cv2.imshow('image' ,img_b)
-            cv2.waitKey(10)
+            file = 'thi_baby.jpg'
+            print("{}/{}".format(curDir, file))
+            os.system('thi_baby.jpg')
+            print("U kunt de foto sluiten")
             break
         elif word == display:
             print("u heeft het woord correct geraden")
             print("daarom kunt ie deze mooie foto bewonderen")
             time.sleep(1)
-            img_a = cv2.imread('sussy.jpg')
-            cv2.imshow('image' ,img_a)
-            cv2.waitKey(1000)
+            file2 = 'sussy.jpg'
+            print("{}/{}".format(curDir, file2))
+            os.system("sussy.jpg")
+            print("U kunt de foto sluiten")
     print("wilt u nog een spelen?")
     print("als je nog een keer wilt spelen antwoord met ja, j of nee, n ")
 
